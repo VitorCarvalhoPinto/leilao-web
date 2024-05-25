@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    height: 100%;
+  }
+  
+  .App {
+    display: flex;
+    height: 100%;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #b3d9ff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Margem entre os botões */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left; /* Alinha o texto à esquerda */
+  }
+  
+  .sidebar-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+  }
+
+
+
+  .tableForm {
+    width: 100%;
+    max-width: 12000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #b3d9ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tableForm select.tipo {
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.tableForm input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.tableForm table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tableForm table thead {
+    background-color: #007bff;
+    color: white;
+}
+
+.tableForm table th, .tableForm table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tableForm table th {
+    text-transform: uppercase;
+}
+
+.tableForm table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.tableForm table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.tableForm table td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.tableForm table td a:hover {
+    text-decoration: underline;
+}
