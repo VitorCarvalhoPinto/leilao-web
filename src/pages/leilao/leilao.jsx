@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getOneLeilao } from "../../services/leilaoService";
 import formatDate from "../../functions/formatDate";
-import { getEntidade } from "../../services/entidade";
+import { getEntidade } from "../../services/entidadeService";
 
 
 const Leilao = () => {
@@ -21,7 +21,7 @@ const Leilao = () => {
         }
 
         const dadosEntidades = async() => {
-            await getEntidade()
+            await getEntidade(idLeilao)
             .then((response) => {
                 setEntidades(response.data)
             })
