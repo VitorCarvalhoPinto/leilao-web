@@ -46,8 +46,8 @@ const Leilao = () => {
                             <h2>{entidade.nome}</h2>
                             <p>{entidade.descricao}</p>
                             <p><strong>Endereço:</strong> {entidade.endereco}</p>
-                            <p><strong>Incremento Mínimo:</strong> {entidade.min_incremento}</p>
-                            <p><strong>Lance Mínimo:</strong> {entidade.min_lance}</p>
+                            {/* <p><strong>Incremento Mínimo:</strong> {entidade.min_incremento}</p>
+                            <p><strong>Lance Mínimo:</strong> {entidade.min_lance}</p> */}
                             <p><strong>Modelo:</strong> {entidade.modelo}</p>
                             <p style={{fontSize: '22px'}}><strong>Lance Atual:</strong> atual</p>
                         </div>
