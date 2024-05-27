@@ -11,7 +11,6 @@ const Leilao = () => {
 
     const [leilao, setLeilao] = useState([])
     const [entidades, setEntidades] = useState([])
-    
 
     useEffect(() => {
         const dadoLeilao = async() => {
@@ -32,8 +31,6 @@ const Leilao = () => {
         dadoLeilao()
     }, [idLeilao])
 
-    console.log(entidades)
-
     return (
         <>
             <div className="leilao-infos">
@@ -45,7 +42,7 @@ const Leilao = () => {
 
             <div className="entidades-list">
                 {entidades && entidades.map((entidade) => (
-                            <div className="entidade-card">
+                        <div key={entidade.id} className="entidade-card">
                             <h2>{entidade.nome}</h2>
                             <p>{entidade.descricao}</p>
                             <p><strong>Endereço:</strong> {entidade.endereco}</p>
