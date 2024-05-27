@@ -27,3 +27,22 @@ export const createClient = async(data) => {
     }
             
 }
+
+export const updateCliente = async(data, id) => {
+    try{
+        const response = await instance.put(`/clientes/${id}`, data)
+        
+        return response
+    } catch (e) {
+        console.log('error: ' + e)
+    }
+}
+
+export const deleteCliente = async(id) => {
+    try{
+        const response = await instance.delete(`/clientes/${id}`)
+        return response
+    } catch (e) {
+        console.log('error: ' + e)
+    }
+}

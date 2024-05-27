@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react"
 import { getLeilao } from "../../services/leilaoService"
 import formatDate from "../../functions/formatDate"
+import { isCNPJ } from "../../functions/isCnpjCpf"
+import ModalCreateLeilao from "../../components/modalCreateLeilao"
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
+
+    const navigate = useNavigate()
+
+    const isCnpj = isCNPJ()
 
     const [tipo, setTipo] = useState('')
     const [nomeLeilao, setNomeLeilao] = useState('')
     const [leilao, setLeilao] = useState([])
+
+    const [open, setOpen] = useState(false);
+    const handleClose = () => setOpen(false);
 
     const id = sessionStorage.getItem('id')
 
@@ -25,6 +35,10 @@ const Home = () => {
         dadoLeilao()
     }, [nomeLeilao, tipo])
 
+    const handleVerLeilao = (id) => {
+        navigate('/leilao/'+id)
+    }
+
     return(
         <>
             {id && <div className="tableForm">
@@ -35,6 +49,7 @@ const Home = () => {
                         <option value="2">VEICULO</option>
                     </select>
                     <input type="text" id="nome leilao" onChange={(e) => setNomeLeilao(e.target.value)} placeholder="nome leilao" />
+                    {isCnpj && <button onClick={() => setOpen(true)} className="sidebar-button" style={{width: '250px'}}>Criar leilao</button>}
                 </div>
                 <table>
                     <thead>
@@ -43,7 +58,7 @@ const Home = () => {
                             <th>abertura</th>
                             <th>fechamento</th>
                             <th>estado</th>
-                            <th>link</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,13 +69,14 @@ const Home = () => {
                                     <td>{formatDate(data.data_abertura)}</td>
                                     <td>{formatDate(data.data_fechamento)}</td>
                                     <td>{data.estado}</td>
-                                    <td>{data.link}</td>
+                                    <td style={{cursor: 'pointer'}} onClick={() => handleVerLeilao(data.id)}>Ver mais</td>
                                 </tr>
                             ))
                         }
                     </tbody>
                 </table>
             </div>}
+            <ModalCreateLeilao open={open} handleClose={handleClose}/>
         </>
         
     )

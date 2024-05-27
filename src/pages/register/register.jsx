@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputMask from "react-input-mask";
 import { createClient } from "../../services/clienteService";
+import { getMask } from "../../functions/getMask";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -27,10 +28,6 @@ const Register = () => {
         setCpfcnpj('')
     }
 
-    const getMask = () => {
-        return selectedOption === 'cpf' ? '999.999.999-99' : '99.999.999/9999-99';
-    }
-
     return(
         <div className="formRegister">
             <h1>registro</h1>
@@ -41,7 +38,7 @@ const Register = () => {
             <input type="text" onChange={(e) => setName(e.target.value)} placeholder="name" id="name" />
             <InputMask
                 placeholder="cpf/cnpj"
-                mask={getMask()}
+                mask={getMask(selectedOption)}
                 value={cpfcnpj}
                 onChange={(e) => setCpfcnpj(e.target.value)}
             />

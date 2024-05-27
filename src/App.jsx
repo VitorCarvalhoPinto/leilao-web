@@ -5,6 +5,7 @@ import './style.css';
 function App() {
 
   const id = sessionStorage.getItem('id')
+
   const navigate = useNavigate()
 
   return (
