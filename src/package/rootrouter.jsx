@@ -1,19 +1,25 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import routes from '../routes';
+import React, { useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import routes from '../functions/routes';
 
 function RootRouter() {
-    return (
-        <BrowserRouter>
-          <Routes>
-            {routes.map((route, index) => (
-              <Route key={index} 
-                    path={route.path} 
-                    element={route.element}/>
-            ))}
-          </Routes>
-        </BrowserRouter>
-      );
+
+  const id = sessionStorage.getItem('id')
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (id === null && window.location.pathname !== '/register')
+      navigate('/login')  
+  }, [id, navigate])
+  
+  return (
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} 
+                  path={route.path} 
+                  element={route.element}/>
+          ))}
+        </Routes>
+    );
 
 }
 

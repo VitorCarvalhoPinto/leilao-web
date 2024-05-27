@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputMask from "react-input-mask";
-import { createClient } from "../services/clienteService";
+import { createClient } from "../../services/clienteService";
 
 const Register = () => {
     const navigate = useNavigate();

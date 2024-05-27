@@ -9,6 +9,15 @@ export const getLogin = async(data) => {
     }
 } 
 
+export const getCliente = async(data) => {
+    try{
+        const response = await instance.get(`/clientes?id${data.idCliente ? '=' + data.idCliente: ''}`)
+        return response
+    } catch (e) {
+        console.log('error: ' + e)
+    }
+} 
+
 export const createClient = async(data) => {
     try{
         const response = await instance.post('/clientes', data)
