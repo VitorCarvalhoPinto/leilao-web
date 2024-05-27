@@ -1,4 +1,5 @@
 import Home from "../pages/leilao/home"
+import Leilao from "../pages/leilao/leilao"
 import Login from "../pages/login/login"
 import Register from "../pages/register/register"
 import Perfil from "../pages/perfil/perfil"
@@ -20,6 +21,10 @@ const routes = [
     {
         path: '/home',
         element: <Home/>
+    },
+    {
+        path: '/leilao/:idLeilao' ,
+        element: <Leilao/>
     },
     {
         path: '/perfil',

@@ -17,3 +17,21 @@ export const getAssociado = async() => {
         console.log('error: ' + e)
     }
 } 
+
+export const createBanco = async(data) => {
+    try{
+        const response = await instance.post(`/banco`, data)
+        return response
+    } catch (e) {
+        console.log('error: ' + e)
+    }
+} 
+
+export const deleteBanco = async(id) => {
+    try{
+        const response = await instance.delete(`/banco/${id}`)
+        return response
+    } catch (e) {
+        console.log('error: ' + e)
+    }
+}

@@ -164,3 +164,31 @@
 .card-login a:hover {
   text-decoration: underline;
 }
+
+.leilao-infos {
+  margin-bottom: 20px;
+}
+
+.entidades-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.entidade-card {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  width: 300px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.entidade-card h2 {
+  margin-top: 0;
+}
+
+.entidade-card p {
+  margin: 8px 0;
+}
