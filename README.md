@@ -1,3 +1,6 @@
+FUNCIONALIDADES DE DELEÇÃO E ATUALIZAÇÃO NÃO ESTÃO 100% FUNCIONAIS
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
