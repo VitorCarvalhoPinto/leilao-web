@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getOneLeilao } from "../../services/leilaoService";
 import formatDate from "../../functions/formatDate";
 import { getEntidade } from "../../services/entidadeService";
-
+import ModalCreateBanco from "../../components/modalCreateEntidade";
 
 const Leilao = () => {
 
-    let { idLeilao } = useParams();
+    const navigate = useNavigate()
+    const { idLeilao } = useParams();
 
     const [leilao, setLeilao] = useState([])
     const [entidades, setEntidades] = useState([])
+
+    const [open, setOpen] = useState(false);
+    const handleClose = () => setOpen(false);
 
     useEffect(() => {
         const dadoLeilao = async() => {
@@ -40,20 +44,21 @@ const Leilao = () => {
                 <h3>de {formatDate(leilao.data_abertura)} até {formatDate(leilao.data_fechamento)}</h3>
             </div>
 
+            <button className="sidebar-button" style={{width: '250px'}} onClick={() => setOpen(true)}>
+                {leilao.id_tipo === 1? 'Criar Imovel' : 'Criar Veiculo'}
+            </button>
+
             <div className="entidades-list">
                 {entidades && entidades.map((entidade) => (
-                        <div key={entidade.id} className="entidade-card">
+                        <div key={entidade.id} className="entidade-card" onClick={() => navigate('/entidade/'+ entidade.id)}>
                             <h2>{entidade.nome}</h2>
                             <p>{entidade.descricao}</p>
                             <p><strong>Endereço:</strong> {entidade.endereco}</p>
-                            {/* <p><strong>Incremento Mínimo:</strong> {entidade.min_incremento}</p>
-                            <p><strong>Lance Mínimo:</strong> {entidade.min_lance}</p> */}
                             <p><strong>Modelo:</strong> {entidade.modelo}</p>
-                            <p style={{fontSize: '22px'}}><strong>Lance Atual:</strong> atual</p>
                         </div>
                 ))}
             </div>
-
+            <ModalCreateBanco id_leilao={leilao.id} id_tipo={leilao.id_tipo} open={open} handleClose={handleClose}/>
         </>
     )
 }

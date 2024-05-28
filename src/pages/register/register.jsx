@@ -29,11 +29,13 @@ const Register = () => {
     }
 
     return(
-        <div className="formRegister">
+        <div className="container-login">
+            <div className="card-login">
             <h1>registro</h1>
             <select value={selectedOption} onChange={handleChange}>
-                <option value="cpf">cpf</option>
-                <option value="cnpj">cnpj</option>
+                    <option value="">Selecione a forma de Login</option>
+                    <option value="cpf">CPF</option>
+                    <option value="cnpj">CNPJ</option>
             </select>
             <input type="text" onChange={(e) => setName(e.target.value)} placeholder="name" id="name" />
             <InputMask
@@ -42,7 +44,8 @@ const Register = () => {
                 value={cpfcnpj}
                 onChange={(e) => setCpfcnpj(e.target.value)}
             />
-            <button onClick={handleConfirm}>Confirmar</button>
+                <button disabled={selectedOption === "" ? true : false} onClick={handleConfirm}>Confirmar</button>
+            </div>
         </div>
     );
 }

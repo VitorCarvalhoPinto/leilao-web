@@ -4,6 +4,7 @@ import Login from "../pages/login/login"
 import Register from "../pages/register/register"
 import Perfil from "../pages/perfil/perfil"
 import Bancos from "../pages/bancos/bancos"
+import Entidade from "../pages/entidade/entidade"
 
 const routes = [
     {
@@ -25,6 +26,10 @@ const routes = [
     {
         path: '/leilao/:idLeilao' ,
         element: <Leilao/>
+    },
+    {
+        path: '/entidade/:idEntidade' ,
+        element: <Entidade/>
     },
     {
         path: '/perfil',
